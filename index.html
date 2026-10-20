@@ -22,6 +22,7 @@
     
         <p>Это моя первая страница,она сделана вручную</p>
         <p>Без мыслей</p>
+        <p>Вы нажали: <span id="clickCount">0</span> раз </p>
         <button id="myButton">Нажми на меня</button>
     </main>
     <footer>
@@ -30,6 +31,9 @@
       <script>
         const button = document.getElementById("myButton");
         const title = document.getElementById("mainTitle");
+        const counter = document.getElementById("clickCount");
+        let count = 0; 
+
 button.addEventListener("click", function() {
  
  if (document.body.style.backgroundColor==="lightgreen"){
@@ -40,7 +44,11 @@ button.addEventListener("click", function() {
     document.body.style.backgroundColor="lightgreen";
     title.textContent = "Кнопка нажата! JS работает!";
 }
+    count = count + 1;
+    counter.textContent = count;
+  
 });
+
       </script>
     </body>
 </html>

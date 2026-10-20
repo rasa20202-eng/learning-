@@ -1,54 +1,62 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-    <head>
-        <title>Моя первая страница</title>
-        <link rel="stylesheet" href="style.css">
-
-    </head>
-    <body>
-        <header>
-        <h1 id="mainTitle" >Привет, мир!</h1>
+  <head>
+    <title>Моя первая страница</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1 id="mainTitle">Привет, мир!</h1>
     </header>
-<main>
+    <main>
+      <h2>Мои цели</h2>
+      <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+      </ul>
+      <p>Мой любимый сайт: <a href="https://www.youtube.com">YouTube</a></p>
 
-        <h2>Мои цели</h2>
-        <ul>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-
-        </ul>
-        <p>Мой любимый сайт: <a href="https://www.youtube.com">YouTube</a></p>
-    
-        <p>Это моя первая страница,она сделана вручную</p>
-        <p>Без мыслей</p>
-        <p>Вы нажали: <span id="clickCount">0</span> раз </p>
-        <button id="myButton">Нажми на меня</button>
+      <p>Это моя первая страница,она сделана вручную</p>
+      <p>Без мыслей</p>
+      <p>Вы нажали: <span id="clickCount">0</span> раз</p>
+      <button id="myButton">Нажми на меня</button>
+      <input type="text" id="namelnput" placeholder="Введите ваше имя" />
+      <button id="greeBtn">Поздороваться</button>
     </main>
     <footer>
-        <p>Моя первая страница, 2026</p>
-      </footer>
-      <script>
-        const button = document.getElementById("myButton");
-        const title = document.getElementById("mainTitle");
-        const counter = document.getElementById("clickCount");
-        let count = 0; 
+      <p>Моя первая страница, 2026</p>
+    </footer>
+    <script>
+      const button = document.getElementById("myButton");
+      const title = document.getElementById("mainTitle");
+      const counter = document.getElementById("clickCount");
+      let count = 0;
 
-button.addEventListener("click", function() {
- 
- if (document.body.style.backgroundColor==="lightgreen"){
- document.body.style.backgroundColor="ligtyellow";
- title.textContent = "Привет, мир!";
+      // Первая кнопка (счетчик и фон)
+      button.addEventListener("click", function () {
+        if (document.body.style.backgroundColor === "lightgreen") {
+          document.body.style.backgroundColor = "lightyellow";
+          title.textContent = "Привет, мир!";
+        } else {
+          document.body.style.backgroundColor = "lightgreen";
+          title.textContent = "Кнопка нажата! JS работает!";
+        }
+        count = count + 1;
+        counter.textContent = count;
+      });
 
-} else {
-    document.body.style.backgroundColor="lightgreen";
-    title.textContent = "Кнопка нажата! JS работает!";
-}
-    count = count + 1;
-    counter.textContent = count;
-  
-});
-
-      </script>
-    </body>
+      const nameInput = document.getElementById("nameInput");
+      const greetBtn = document.getElementById("greetBtn");
+        
+      greetBtn.addEventListener("click", function () {
+        const userName = nameInput.value;
+        if (userName === "") {  
+          alert("Введите имя!");
+        } else {
+          title.textContent = "Привет, " + userName + "!";
+        }
+      });
+    </script>
+  </body>
 </html>

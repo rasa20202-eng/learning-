@@ -6,10 +6,11 @@
 
     </head>
     <body>
-        <header
-        <h1>Привет, мир!</h1>
+        <header>
+        <h1 id="mainTitle" >Привет, мир!</h1>
     </header>
 <main>
+
         <h2>Мои цели</h2>
         <ul>
             <li>HTML</li>
@@ -21,9 +22,25 @@
     
         <p>Это моя первая страница,она сделана вручную</p>
         <p>Без мыслей</p>
+        <button id="myButton">Нажми на меня</button>
     </main>
     <footer>
         <p>Моя первая страница, 2026</p>
       </footer>
+      <script>
+        const button = document.getElementById("myButton");
+        const title = document.getElementById("mainTitle");
+button.addEventListener("click", function() {
+ 
+ if (document.body.style.backgroundColor==="lightgreen"){
+ document.body.style.backgroundColor="ligtyellow";
+ title.textContent = "Привет, мир!";
+
+} else {
+    document.body.style.backgroundColor="lightgreen";
+    title.textContent = "Кнопка нажата! JS работает!";
+}
+});
+      </script>
     </body>
 </html>

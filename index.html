@@ -57,28 +57,32 @@ const goalsContainer = document.getElementById("goalsContainer");
 const newGoalInput = document.getElementById("newGoalInput");
 const goalForm = document.getElementById("goalForm");
 
-const myGoals = ["Выучить HTML", "Выучить CSS", "Выучить JavaScript", "Стать менеджером"];
+let myGoals = JSON.parse(localStorage.getItem("goals")) || ["Выучить HTML", "Выучить CSS", "Выучить JavaScript", "Стать менеджером"];
 function renderGoals() {
-  goalsContainer.textContent = "";
+  goalsContainer.textContent = ""; // Очищаем контейнер
+  
   for (let i = 0; i < myGoals.length; i++) {
     const goalElement = document.createElement("p");
-    goalElement.textContent = myGoals[i];
+    goalElement.textContent = myGoals[i] + " "; 
+    
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Удалить";
+    
+    deleteBtn.addEventListener("click", function() {
+      myGoals.splice(i, 1); 
+      renderGoals();        
+    });
+    
+    goalElement.appendChild(deleteBtn);
     goalsContainer.appendChild(goalElement);
   }
-}
-renderGoalsBtn.addEventListener("click", renderGoals);
-goalForm.addEventListener("submit", function(event) {
-  event.preventDefault();
-
-  const newGoal = newGoalInput.value; 
   
-  if (newGoal !== "") {               
-    myGoals.push(newGoal);            
-    newGoalInput.value = "";          
-    renderGoals();                    
-  }
-});
+  
+  localStorage.setItem("goals", JSON.stringify(myGoals)); 
+}
 
+
+renderGoals();
 </script>
 </body>
 </html>

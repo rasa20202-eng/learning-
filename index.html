@@ -25,6 +25,8 @@
       <button id="greetBtn">Поздороваться</button>
       <button id="renderGoalsBtn">Показать мои цели</button>
       <div id="goalsContainer"></div>
+      <input type="text" id="newGoalInput" placeholder="Новая цель...">
+<button id="addGoalBtn">Добавить</button>
     </main>
     <footer>
       <p>Моя первая страница, 2026</p>
@@ -48,31 +50,33 @@
         counter.textContent = count;
       });
 
-      const nameInput = document.getElementById("nameInput");
-      const greetBtn = document.getElementById("greetBtn");
-        
-      greetBtn.addEventListener("click", function () {
-        const userName = nameInput.value;
-        if (userName === "") {  
-          alert("Введите имя!");
-        } else {
-          title.textContent = "Привет, " + userName + "!";
-          title.classList.add("highlight");
-        }
-      });
-      const renderGoalsBtn =document.getElementById("renderGoalsBtn");
-      const goalsContainer = document.getElementById("goalsContainer");
-      renderGoalsBtn.addEventListener("click", function() {
-  goalsContainer.textContent = ""; 
-  const myGoals = ["Выучить HTML", "Выучить CSS", "Выучить JavaScript", "Стать менеджером"];
+      const renderGoalsBtn = document.getElementById("renderGoalsBtn");
+const goalsContainer = document.getElementById("goalsContainer");
+const newGoalInput = document.getElementById("newGoalInput");
+const addGoalBtn = document.getElementById("addGoalBtn");
+
+const myGoals = ["Выучить HTML", "Выучить CSS", "Выучить JavaScript", "Стать менеджером"];
+function renderGoals() {
+  goalsContainer.textContent = "";
   for (let i = 0; i < myGoals.length; i++) {
-  
     const goalElement = document.createElement("p");
     goalElement.textContent = myGoals[i];
-    
     goalsContainer.appendChild(goalElement);
   }
-});
-    </script>
-  </body>
+}
+renderGoalsBtn.addEventListener("click", renderGoals);
+addGoalBtn.addEventListener("click", function() {
+  const newGoal = newGoalInput.value;
+  
+  if (newGoal !== "") {
+    myGoals.push(newGoal);
+    newGoalInput.value = "";
+    renderGoals();
+  }
+}); 
+
+</script>
+</body>
 </html>
+
+                                                                                                                      

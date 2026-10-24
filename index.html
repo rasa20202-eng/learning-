@@ -23,6 +23,8 @@
       <button id="myButton">Нажми на меня</button>
       <input type="text" id="nameInput" placeholder="Введите ваше имя">
       <button id="greetBtn">Поздороваться</button>
+      <button id="renderGoalsBtn">Показать мои цели</button>
+      <div id="goalsContainer"></div>
     </main>
     <footer>
       <p>Моя первая страница, 2026</p>
@@ -58,6 +60,19 @@
           title.classList.add("highlight");
         }
       });
+      const renderGoalsBtn =document.getElementById("renderGoalsBtn");
+      const goalsContainer = document.getElementById("goalsContainer");
+      renderGoalsBtn.addEventListener("click", function() {
+  goalsContainer.textContent = ""; 
+  const myGoals = ["Выучить HTML", "Выучить CSS", "Выучить JavaScript", "Стать менеджером"];
+  for (let i = 0; i < myGoals.length; i++) {
+  
+    const goalElement = document.createElement("p");
+    goalElement.textContent = myGoals[i];
+    
+    goalsContainer.appendChild(goalElement);
+  }
+});
     </script>
   </body>
 </html>

@@ -26,3 +26,7 @@ color: white;
 padding: 20px;
 text-align: center;
 }
+.highlight{
+    color: red;
+    font-size: 30px;
+}

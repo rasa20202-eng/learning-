@@ -21,8 +21,8 @@
       <p>Без мыслей</p>
       <p>Вы нажали: <span id="clickCount">0</span> раз</p>
       <button id="myButton">Нажми на меня</button>
-      <input type="text" id="namelnput" placeholder="Введите ваше имя" />
-      <button id="greeBtn">Поздороваться</button>
+      <input type="text" id="nameInput" placeholder="Введите ваше имя">
+      <button id="greetBtn">Поздороваться</button>
     </main>
     <footer>
       <p>Моя первая страница, 2026</p>
@@ -55,6 +55,7 @@
           alert("Введите имя!");
         } else {
           title.textContent = "Привет, " + userName + "!";
+          title.classList.add("highlight");
         }
       });
     </script>

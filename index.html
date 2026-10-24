@@ -25,8 +25,10 @@
       <button id="greetBtn">Поздороваться</button>
       <button id="renderGoalsBtn">Показать мои цели</button>
       <div id="goalsContainer"></div>
+      <form id="goalForm"><
       <input type="text" id="newGoalInput" placeholder="Новая цель...">
 <button id="addGoalBtn">Добавить</button>
+      </form>
     </main>
     <footer>
       <p>Моя первая страница, 2026</p>
@@ -53,7 +55,7 @@
       const renderGoalsBtn = document.getElementById("renderGoalsBtn");
 const goalsContainer = document.getElementById("goalsContainer");
 const newGoalInput = document.getElementById("newGoalInput");
-const addGoalBtn = document.getElementById("addGoalBtn");
+const goalForm = document.getElementById("goalForm");
 
 const myGoals = ["Выучить HTML", "Выучить CSS", "Выучить JavaScript", "Стать менеджером"];
 function renderGoals() {
@@ -65,15 +67,17 @@ function renderGoals() {
   }
 }
 renderGoalsBtn.addEventListener("click", renderGoals);
-addGoalBtn.addEventListener("click", function() {
-  const newGoal = newGoalInput.value;
+goalForm.addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const newGoal = newGoalInput.value; 
   
-  if (newGoal !== "") {
-    myGoals.push(newGoal);
-    newGoalInput.value = "";
-    renderGoals();
+  if (newGoal !== "") {               
+    myGoals.push(newGoal);            
+    newGoalInput.value = "";          
+    renderGoals();                    
   }
-}); 
+});
 
 </script>
 </body>
